@@ -105,6 +105,16 @@ public:
         }
         return j;
     }
+    void converse(){
+        Node *p = head->next;
+        head->next = 0;
+        while(p){
+            Node *q = p->next;
+            p->next = head->next;
+            head->next = p;
+            p = q;
+        }
+    }
     T operator[](int i) const{
         if(i < 0) throw "Not find";
         Node *p = head; int j = -1;
@@ -155,4 +165,7 @@ int main(){
         std::cout << List2[i] << " ";
     }
     std::cout << std:: endl;
+
+    List2.converse();
+    List2.traverse(Print); std::cout << std::endl;
 }

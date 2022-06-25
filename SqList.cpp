@@ -107,6 +107,13 @@ public:
         }
         //std::cout << std::endl;
     }
+    void converse(){
+        for(int i = 0,j = n-1; i < j; ++i,--j){
+            T temp = data[i];
+            data[i] = data[j];
+            data[j] = temp;
+        }
+    }
 private:
     bool realloc(){
         T *p = new T[2 * capacity];
@@ -225,4 +232,8 @@ int main(){
         std::cout << ints[i] << " ";
     }
     std::cout << std::endl;
+
+    ints.converse();
+    ints.traverse(Print); std::cout << std::endl;
+
 }
