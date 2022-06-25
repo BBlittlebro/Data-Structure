@@ -62,6 +62,14 @@ public:
         if(i < 1 || i > n) {return false;}
         data[i-1] = e; return true;
     }
+    T operator[](int i) const{
+        // if(i < 0 || i >= n) {return false;}
+        return data[i];
+    }
+    T& operator[](int i) {
+        // if(i < 0 || i >= n) {return false;}
+        return data[i];
+    }
     int size(){return n;}
     bool pop_back(){
         if(n == 0) return false;
@@ -150,7 +158,7 @@ void Print(student &person){
     std::cout << std::endl;
 }
 
-std::ostream & operator << (std::ostream &os, student &person){
+std::ostream & operator << (std::ostream &os, const student &person){
     os << person.name << ": " << person.score << std::endl;
     return os;
 }
@@ -204,6 +212,17 @@ int main(){
     students.push_back(student("Andy", 100));
     students.push_back(student("Cock", 60.5));
     students.push_back(student("Sora", 55.7));
-    students.traverse(Print);
+    students.traverse(Print); std::cout << std::endl;
     //print(students);
+    
+    std::cout << students[1] << std::endl;
+
+    std::cout << ints[1] << std::endl;
+    ints[1] = 100;
+    std::cout << ints[1] << std::endl;
+
+    for(int i = 0; i < ints.size(); ++i){
+        std::cout << ints[i] << " ";
+    }
+    std::cout << std::endl;
 }

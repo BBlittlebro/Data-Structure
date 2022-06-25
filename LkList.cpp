@@ -96,6 +96,35 @@ public:
             p = p->next;
         }
     }
+    int size(){
+        Node *p = head->next;
+        int j = 0;
+        while(p){    
+            p = p->next;
+            ++j;
+        }
+        return j;
+    }
+    T operator[](int i) const{
+        if(i < 0) throw "Not find";
+        Node *p = head; int j = -1;
+        while(p && j < i){      //找 i 號節點
+            p = p->next;
+            ++j;
+        }
+        if(!p) throw "Not find";
+        return p->data;
+    }
+    T& operator[](int i){
+        if(i < 0) throw "Not find";
+        Node *p = head; int j = -1;
+        while(p && j < i){      //找 i 號節點
+            p = p->next;
+            ++j;
+        }
+        if(!p) throw "Not find";
+        return p->data;
+    }
 };
 
 template <typename T>
@@ -120,4 +149,10 @@ int main(){
     List2.push_back("Candy");
     List2.push_back("Dog");
     List2.traverse(Print); std::cout << std::endl;
+
+    List2[1] = "Hello";
+    for(int i = 0; i < List2.size(); ++i){
+        std::cout << List2[i] << " ";
+    }
+    std::cout << std:: endl;
 }
