@@ -62,7 +62,7 @@ int main(){
     char pattern[] = "A";
     char text[] =    "ABCABCABDC";
     kmp_search(text, pattern);
-    /*
+/*
     int prefix[6];
     int n = 6;
 
@@ -72,6 +72,6 @@ int main(){
     for(int i = 0; i < 9; ++i){
         printf("%d\n", prefix[i]);
     }
-    */
+*/
     return 0;
 }
